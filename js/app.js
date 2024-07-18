@@ -20,13 +20,16 @@ let playerChoice;
 let computerChoice; 
 //let matchResult;
 let resultMsg;
+let playerScore = 0; 
+let computerScore = 0; 
 
 
 /*------------------------ Cached Element References ------------------------*/
 
 //    We'll need a reference to a DOM element to display messages
 const resultDispEl = document.getElementById('result-display')
-
+const playerScoreEl = document.getElementById('player-score')
+const computerScoreEl = document.getElementById('computer-score')
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -51,12 +54,16 @@ const compare = () => {
         resultMsg = 'You tied!'
     } else if (playerChoice === choices[0] && computerChoice === choices[2]){
         resultMsg = 'You win'
+        playerScore += 1; 
     } else if (playerChoice === choices[1] && computerChoice === choices[0]){
         resultMsg = 'You win'
+        playerScore += 1; 
     } else if (playerChoice === choices[2] && computerChoice === choices[1]){
         resultMsg = 'You win'
+        playerScore += 1; 
     } else {
-        resultMsg = 'You lost'
+       resultMsg = 'You lost'
+       computerScore += 1; 
     }
 }
 
@@ -66,13 +73,17 @@ const compare = () => {
 
 const render = () => {
     resultDispEl.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}. ${resultMsg}`
+    playerScoreEl.textContent = playerScore
+    computerScoreEl.textContent = computerScore
 }
 
 const resetGame = () => {
     playerChoice = null; 
     computerChoice = null;
     resultDispEl.textContent = ''
-
+    playerScore = 0
+    computerScore = 0
+ 
 }
 const play = function(event) {
 
