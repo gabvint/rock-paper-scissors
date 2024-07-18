@@ -44,5 +44,10 @@ html, body {
     cursor: pointer;
   }
 
+  .style{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
   
   
